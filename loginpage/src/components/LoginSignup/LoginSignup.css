@@ -1,0 +1,156 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Container Styling */
+  .container {
+    width: 350px;
+    background:rgb(159, 176, 124);
+    padding: 20px;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 0px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Header Styles */
+  .header {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .underline {
+    width: 50px;
+    height: 3px;
+    background: #007bff;
+    margin: auto;
+    border-radius: 2px;
+  }
+  
+  /* Input Fields */
+  .input {
+    display: flex;
+    align-items: center;
+    background: #f1f1f1;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  
+  .input img {
+    width: 20px;
+    margin-right: 10px;
+  }
+  
+  .input input {
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    font-size: 16px;
+  }
+  
+  /* Submit Buttons */
+  .submit-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .submit {
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .submit:hover {
+    background: #0056b3;
+  }
+  
+  .submit.gray {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* Error Message */
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* Table Page Styling */
+  .table-container {
+    width: 80%;
+    margin: 50px auto;
+    text-align: center;
+  }
+  
+  .table-container h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Table Styling */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background:rgb(191, 179, 179);
+   
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  
+  th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  th {
+    background:rgb(95, 136, 95);
+    color: white;
+  }
+  
+  td input {
+    width: 50px;
+    border: black;
+    padding: 10px;
+    text-align: center;
+    font-size: 14px;
+  }
+  
+  /* Remove number spinner */
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: #28a745;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
+  }
+  
+  button:hover {
+    background:rgb(95, 136, 95);
+  }
+  
