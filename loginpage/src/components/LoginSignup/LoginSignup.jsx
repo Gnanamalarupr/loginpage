@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./LoginSignup.css";
+import user_icon from "../../assets/person.png";
 import email_icon from "../../assets/email.png";
 import password_icon from "../../assets/password.png";
-import user_icon from "../../assets/person.png";
 
 const LoginSignup = () => {
   const [action, setAction] = useState("Login");
@@ -12,46 +12,49 @@ const LoginSignup = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
-  // Initial table state
   const [students, setStudents] = useState([
-    { name: "Student 1", subjects: ["", "", "", "", ""], total: 0 },
-    { name: "Student 2", subjects: ["", "", "", "", ""], total: 0 },
-    { name: "Student 3", subjects: ["", "", "", "", ""], total: 0 },
-    { name: "Student 4", subjects: ["", "", "", "", ""], total: 0 },
-    { name: "Student 5", subjects: ["", "", "", "", ""], total: 0 },
+    { subjects: ["", "", "", "", ""], total: 0 },
+    { subjects: ["", "", "", "", ""], total: 0 },
+    { subjects: ["", "", "", "", ""], total: 0 },
+    { subjects: ["", "", "", "", ""], total: 0 },
+    { subjects: ["", "", "", "", ""], total: 0 },
   ]);
 
-  // Handle input change for table marks
   const handleInputChange = (studentIndex, subjectIndex, value) => {
     const updatedStudents = [...students];
     updatedStudents[studentIndex].subjects[subjectIndex] = value;
     setStudents(updatedStudents);
   };
 
-  // Calculate total marks
   const calculateTotal = () => {
     const updatedStudents = students.map((student) => {
-      const total = student.subjects.reduce((acc, mark) => acc + (parseInt(mark) || 0), 0);
+      const total = student.subjects.reduce(
+        (acc, mark) => acc + (parseInt(mark) || 0),
+        0
+      );
       return { ...student, total };
     });
     setStudents(updatedStudents);
   };
 
-  // Handle login/sign-up submission
   const handleSubmit = () => {
     if (!email || !password || (action === "Sign Up" && !name)) {
       setErrorMessage("Please fill in all fields.");
       return;
     }
 
-    setErrorMessage(""); // Clear error
-    setIsAuthenticated(true); // Allow access to table
+    if (email === "student" && password === "9861") {
+      setErrorMessage("");
+      setIsAuthenticated(true);
+    } else {
+      setErrorMessage("Invalid email or password.");
+    }
   };
 
   return (
     <div>
       {!isAuthenticated ? (
-        <div className={`container ${action === "Sign Up" ? "signup-container" : ""}`}>
+        <div className="container">
           <div className="header">
             <div className="text">{action}</div>
             <div className="underline"></div>
@@ -91,22 +94,23 @@ const LoginSignup = () => {
             </div>
           </div>
 
-          {/* Display error message */}
           {errorMessage && <div className="error-message">{errorMessage}</div>}
 
           <div className="submit-container">
-            <div
+            <button
               className={action === "Login" ? "submit gray" : "submit"}
               onClick={() => setAction("Sign Up")}
+              disabled={action === "Login"}
             >
               Sign Up
-            </div>
-            <div
+            </button>
+            <button
               className={action === "Sign Up" ? "submit gray" : "submit"}
               onClick={() => setAction("Login")}
+              disabled={action === "Sign Up"}
             >
               Login
-            </div>
+            </button>
           </div>
 
           <button className="submit-button" onClick={handleSubmit}>
@@ -119,7 +123,6 @@ const LoginSignup = () => {
           <table>
             <thead>
               <tr>
-                <th>Student</th>
                 <th>Subject 1</th>
                 <th>Subject 2</th>
                 <th>Subject 3</th>
@@ -131,7 +134,6 @@ const LoginSignup = () => {
             <tbody>
               {students.map((student, studentIndex) => (
                 <tr key={studentIndex}>
-                  <td>{student.name}</td>
                   {student.subjects.map((mark, subjectIndex) => (
                     <td key={subjectIndex}>
                       <input
