@@ -60,6 +60,7 @@
   margin-top: 20px;
 }
 
+/* ✅ Restore Original Login Button Style */
 .submit {
   padding: 10px 20px;
   background: #007bff;
@@ -67,12 +68,15 @@
   border-radius: 20px;
   cursor: pointer;
   transition: 0.3s;
+  border: none;
+  font-size: 16px;
 }
 
 .submit:hover {
   background: #0056b3;
 }
 
+/* Disabled Button Style */
 .submit.gray {
   background: #ccc;
   cursor: not-allowed;
@@ -88,12 +92,6 @@
   width: 80%;
   margin: 50px auto;
   text-align: center;
-}
-
-.table-container h2 {
-  font-size: 24px;
-  color: #333;
-  margin-bottom: 20px;
 }
 
 table {
@@ -123,8 +121,19 @@ td input {
   font-size: 14px;
 }
 
+/* ✅ Remove Increment/Decrement Buttons for Number Inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-button {
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Submit Button at the Bottom */
+.submit-button {
   margin-top: 20px;
   padding: 10px 20px;
   background: #28a745;
@@ -135,6 +144,7 @@ button {
   border-radius: 20px;
 }
 
-button:hover {
+.submit-button:hover {
   background: rgb(95, 136, 95);
 }
+
